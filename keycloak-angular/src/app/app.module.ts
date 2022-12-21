@@ -13,8 +13,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     keycloak.init({
       config: {
         url: 'http://localhost:8080',
-        realm: 'eazybank-dev',
-        clientId: 'eazypublicclient',
+        realm: 'oauth-demo',
+        clientId: 'public_client',
       },
       initOptions: {
         onLoad: 'login-required',

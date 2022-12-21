@@ -1,0 +1,8 @@
+<div class="center">
+<button type="button" (click)="callUserApi()" style="margin:10px">Call user api endpoint</button>
+<button type="button" (click)="callAdminApi()">Call Admin api endpoint</button>
+</div>
+
+<pre><p>User: {{user | json}}</p></pre>
+
+<pre><p style="color:red">Error: {{error | json}}</p></pre>

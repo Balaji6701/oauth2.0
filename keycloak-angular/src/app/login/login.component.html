@@ -1,0 +1,7 @@
+<div class="center">
+    <button type="button" (click)="login()" class="login" style="margin:10px">Login</button>
+    <button type="button" (click)="logout()" class="logout">Logout</button>
+</div>
+
+<p style="font-weight: bold">Logged in as: {{userProfile.firstName}}</p>
+<router-outlet></router-outlet>

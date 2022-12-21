@@ -1,6 +1,7 @@
 import { ApiService } from './../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { Response } from '../models/response.model';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,7 @@ import { Response } from '../models/response.model';
 export class DashboardComponent implements OnInit {
 
   user: Response;
-  error: Error;
+  error: string;
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
@@ -23,9 +24,11 @@ export class DashboardComponent implements OnInit {
         this.user = res;
         this.error = null;
       },
-      error: (err) => {
+      error: (err: HttpErrorResponse) => {
+        if(err.status === 403){
+          this.error = "Un-authorized"
+        }
         this.user = null;
-        this.error = err;
       }
     })
   }
@@ -37,9 +40,11 @@ export class DashboardComponent implements OnInit {
         this.user = res;
         this.error = null;
       },
-      error: (err) => {
+      error: (err:HttpErrorResponse) => {
+        if(err.status === 403){
+          this.error = "Un-authorized"
+        }
         this.user = null;
-        this.error = err;
       }
     })
   }
